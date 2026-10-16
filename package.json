@@ -1,0 +1,24 @@
+{
+  "name": "terms",
+  "productName": "Terms",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A three-dimensional strategy game of collecting and setting your opponent's prices.",
+  "main": "main.cjs",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "start": "electron .",
+    "test": "node --test tests/*.test.js",
+    "check": "node --check main.cjs && node --check preload.cjs && node --check src/app.js && node --check src/scene.js && node --check src/game.js",
+    "package:mac": "npm run build && electron-packager . Terms --platform=darwin --arch=arm64 --out=release --overwrite --prune=true --icon=assets/Terms.icns --app-bundle-id=com.chrisdimarco.terms --ignore='^/(release|src|tests|evidence|node_modules)($|/)'"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@electron/packager": "^20.3.0",
+    "@playwright/test": "^1.63.0",
+    "electron": "^44.2.0",
+    "three": "^0.185.1",
+    "vite": "^8.2.2"
+  }
+}
